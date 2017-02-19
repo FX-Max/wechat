@@ -21,7 +21,8 @@ class DeployController extends Controller
         //    exit('error request');
         //}
 
-        $cmd = "cd $target && git reset --hard origin/master && git clean -f && git pull 2>&1 && git checkout master";
+        //$cmd = "cd $target && git reset --hard origin/master && git clean -f && git pull 2>&1 && git checkout master";
+        $cmd = "cd $target && git pull origin master";
 
         shell_exec($cmd);
 
