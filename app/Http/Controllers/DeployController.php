@@ -25,7 +25,7 @@ class DeployController extends Controller
         //$cmd = "cd $target && git pull origin master";
 var_dump($cmd);
         $result = shell_exec($cmd);
-var_dump($cmd);
+var_dump($result);
     }
 
 
