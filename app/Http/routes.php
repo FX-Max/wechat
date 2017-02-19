@@ -17,4 +17,4 @@ Route::get('/', function () {
 
 Route::any('/wechat', 'WechatController@serve');
 
-Route::post('/deploy', 'DeployController@deploy');
+Route::any('/deploy', 'DeployController@deploy');
