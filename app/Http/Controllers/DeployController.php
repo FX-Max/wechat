@@ -13,7 +13,7 @@ class DeployController extends Controller
     public function deploy(){
 
         $target = '/var/www/http/wechat';
-        //$token = '';
+        $token = '';
 
         //$json = json_decode(file_get_contents('php://input'), true);
 
