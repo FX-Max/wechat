@@ -6,7 +6,7 @@
  * Time: 23:10
  */
 
-namespace App\Wechat\MessageType;
+namespace App\Wechat;
 
 /**
  * Class MessageType
@@ -32,7 +32,7 @@ class MessageType
 
     /**/
     public static $MSG_TYPE_LOCATION = 'location';
-    
+
     /**/
     public static $MSG_TYPE_LINK = 'link';
 
