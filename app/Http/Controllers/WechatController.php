@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Wechat\MessageType;
 
 class WechatController extends Controller
 {
@@ -22,7 +23,44 @@ class WechatController extends Controller
 
         $wechat = app('wechat');
         $wechat->server->setMessageHandler(function($message){
-            return "欢迎关注 666！";
+            //return "欢迎关注 666！";
+
+            switch ($message->MsgType) {
+                case MessageType::$MSG_TYPE_EVENT :
+                    return '收到事件消息';
+                    break;
+
+                case MessageType::$MSG_TYPE_TEXT :
+                    return '收到文字消息';
+                    break;
+
+                case MessageType::$MSG_TYPE_IMAGE:
+                    return '收到图片消息';
+                    break;
+
+                case MessageType::$MSG_TYPE_VOICE:
+                    return '收到语音消息';
+                    break;
+
+                case MessageType::$MSG_TYPE_VIDEO:
+                    return '收到视频消息';
+                    break;
+
+                case MessageType::$MSG_TYPE_LOCATION:
+                    return '收到坐标消息';
+                    break;
+
+                case MessageType::$MSG_TYPE_LINK:
+                    return '收到链接消息';
+                    break;
+
+
+                default:
+                    return '收到其它消息';
+                    break;
+            }
+
+
         });
 
         //Log::info('return response.');
@@ -30,79 +68,4 @@ class WechatController extends Controller
         return $wechat->server->serve();
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }
