@@ -14,6 +14,7 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         Commands\Inspire::class,
+        Commands\V2exCommand::class,
     ];
 
     /**
@@ -26,5 +27,9 @@ class Kernel extends ConsoleKernel
     {
         $schedule->command('inspire')
                  ->hourly();
+
+        $schedule->command('command:v2ex')
+                 ->dailyAt('23:00');
+        
     }
 }
