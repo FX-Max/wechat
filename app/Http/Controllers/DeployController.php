@@ -34,7 +34,7 @@ class DeployController extends Controller
             'mail.deploy',
             ['deploy_result' => $result, 'json_web_hook' => $json_web_hook],
             function($message){
-                $to = 'xfang@i9i8.com';
+                $to = 'maxfang007@gmail.com';
                 $message->to($to)->subject('Deploy Email');
             }
         );
